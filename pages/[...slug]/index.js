@@ -1,16 +1,11 @@
 import Head from "next/head";
 import Link from "next/link";
 import returnProps from "../../_services/props";
-import { getBySlug as getPageBySlug } from "../../_services/gplQuery/page.service";
+import Layout from "../../components/layout/Layout";
 
 function Page(props) {
   console.log(props.page);
-  return (
-    <div>
-      <h1>{props.page.content_heading}</h1>
-      <div dangerouslySetInnerHTML={{ __html: props.page.content }}></div>
-    </div>
-  );
+  return (<Layout {...props} />);
 }
 
 // This gets called on every request
@@ -23,9 +18,7 @@ export async function getServerSideProps(context) {
     URL = params.slug;
   }
 
-  const page = await getPageBySlug(URL);
-  if (page === null || URL === "home") return {notFound: true};
-  return returnProps(page);
+  return returnProps(URL);
 }
 
 export default Page;

@@ -1,13 +1,22 @@
-import '../styles/globals.css'
+// add bootstrap css
+import "bootstrap/dist/css/bootstrap.css";
+// import "../styles/globals.css";
+import Head from "next/head";
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo-client";
+import Navbar from "../components/navbar/Navbar"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ApolloProvider client={client}>
-      <Component {...pageProps} />
-    </ApolloProvider>
+    <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <ApolloProvider client={client}>
+        <Component {...pageProps} />
+      </ApolloProvider>
+    </>
   );
 }
 
-export default MyApp
+export default MyApp;
