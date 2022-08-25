@@ -2,7 +2,7 @@ import { getBySlug as getPageBySlug } from "./gplQuery/page.service";
 import { getBySlug as getCategoriesBySlug, getMenu as getCategoriesMenu } from "./gplQuery/categories.service";
 
 export default async function returnProps(URL) {
-  const catMenu = await getCategoriesMenu();
+  const CategoryTree = await getCategoriesMenu();
 
   let page = null;
   if (page === null) page = await getCategoriesBySlug(URL);
@@ -11,7 +11,7 @@ export default async function returnProps(URL) {
   return {
     props: {
       page: page,
-      menu: catMenu,
+      CategoryTree: CategoryTree,
     },
   };
 

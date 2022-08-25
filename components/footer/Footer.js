@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <footer className="pt-4 my-md-5 pt-md-5 border-top">
-      <div className="row">
+      <div className="row w-100">
         <div className="col-12 col-md">
           {/* <img className="mb-2" src="/docs/5.2/assets/brand/bootstrap-logo.svg" alt="" width="24" height="19"> */}
           <small className="d-block mb-3 text-muted">© 2017–2022</small>
